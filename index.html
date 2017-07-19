@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/gallary.css">
+    <script src="js/jquery-1.12.1.min.js"></script>
+    <script>
+        $(function(){
+//            var wr= $(window).width();
+//            var wrh= $(".wrapper").height();
+//            var bf= $(".big-photo").width();
+//            var bfh= $(".big-photo").height();
+//            var left = wr - bf;
+//            var top = wh - bfh;
+//            var bf= $(".big-photo").css({left: left/4});
+//            var wh = $(window).height();
+//            var bf= $(".big-photo").css({top: top/2});
+//            
+//            var pht = '';
+            
+            //КЛИК ПО ПРЕВЬЮ ФОТО
+            
+            $(".small-ph").on('click', function(){
+                var source =  $(this).attr('src');
+                pht =  $(this);
+                console.log(source);
+                $("#big-img").attr('src', source);
+                $(".big-photo").css({display:'flex'})
+            })
+            
+            //КЛИК ПО БОЛЬШОМУ ФОТО
+            $("#big-img").on('click',function go (event){
+                event.stopPropagation();
+                
+                var src = pht.next()
+                var source = pht.next().attr('src');
+                console.log(source);
+                $("#big-img").attr('src', source);
+               
+                pht = src;
+                 if(source == undefined){
+                    pht = $('.wrapper').children('.small-ph');
+                    go(event); 
+
+                }
+                
+            });
+            
+            //КЛИК ПО БГ
+            
+            $(".big-photo").on('click',function(){
+                
+                $(this).css({display:'none'});
+
+            });
+            
+
+        })
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="big-photo">
+            <img src="" alt="" id="big-img">
+
+            
+        </div>
+        <img src="images/E_zx1YpcyQU.jpg" alt="" class="small-ph">
+        <img src="images/hl.jpeg" alt="" class="small-ph">
+        <img src="images/P0vatEeNlus.jpg" alt="" class="small-ph">
+        <img src="images/rNTM0xLYESM.jpg" alt="" class="small-ph">
+        <img src="images/rprt2.jpg" alt="" class="small-ph">
+        <img src="images/timlil.jpg" alt="" class="small-ph">
+        <img src="images/E_zx1YpcyQU.jpg" alt="" class="small-ph">
+        <img src="images/hl.jpeg" alt="" class="small-ph">
+        <img src="images/P0vatEeNlus.jpg" alt="" class="small-ph">
+        <img src="images/rNTM0xLYESM.jpg" alt="" class="small-ph">
+        <img src="images/rprt2.jpg" alt="" class="small-ph">
+        <img src="images/timlil.jpg" alt="" class="small-ph">
+        <img src="images/E_zx1YpcyQU.jpg" alt="" class="small-ph">
+        <img src="images/hl.jpeg" alt="" class="small-ph">
+        <img src="images/P0vatEeNlus.jpg" alt="" class="small-ph">
+        <img src="images/rNTM0xLYESM.jpg" alt="" class="small-ph">
+        <img src="images/rprt2.jpg" alt="" class="small-ph">
+        <img src="images/timlil.jpg" alt="" class="small-ph">
+        <img src="images/E_zx1YpcyQU.jpg" alt="" class="small-ph">
+        <img src="images/hl.jpeg" alt="" class="small-ph">
+        <img src="images/P0vatEeNlus.jpg" alt="" class="small-ph">
+        <img src="images/rNTM0xLYESM.jpg" alt="" class="small-ph">
+        <img src="images/rprt2.jpg" alt="" class="small-ph">
+        <img src="images/timlil.jpg" alt="" class="small-ph">
+    </div>
+</body>
+</html>
